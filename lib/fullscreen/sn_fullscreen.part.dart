@@ -1,4 +1,4 @@
-part of '../sn_video_player_controller.dart';
+part of '../controller/sn_video_player_controller.dart';
 
 enum FullScreenType {
   rotateScreen,
@@ -8,7 +8,7 @@ enum FullScreenType {
 showFullScreenVideoPlayer(
   BuildContext context, {
   required SNVideoPlayerController controller,
-  Widget? fullscreenPlat,
+  SNPlat? fullscreenPlat,
   FullScreenType fullScreenType = FullScreenType.rotateBox,
 }) async {
   // 暂时只使用rotateBox实现
@@ -16,7 +16,7 @@ showFullScreenVideoPlayer(
     _showFullScreenWithRotateBox(
       context,
       controller: controller,
-      plat: fullscreenPlat,
+      fullscreenPlat: fullscreenPlat,
     );
     return;
   }
@@ -26,7 +26,7 @@ GlobalKey _previewContainer = GlobalKey();
 _showFullScreenWithRotateBox(
   BuildContext context, {
   required SNVideoPlayerController controller,
-  Widget? plat,
+  SNPlat? fullscreenPlat,
 }) async {
   Axis axis;
   axis = Axis.horizontal;
@@ -60,28 +60,36 @@ _showFullScreenWithRotateBox(
               width: height,
               height: width,
               child: PopScope(
+                  canPop: true,
+                  onPopInvokedWithResult: (didPop, result) {
+                    debugPrint(didPop.toString());
+                    debugPrint(result.toString());
+                  },
                   child: LayoutBuilder(builder: (buildContext, boxConstraints) {
-                Stack stack = Stack(
-                  children: [
-                    Center(
-                      child: AspectRatio(
-                        aspectRatio: controller.value.aspectRatio,
-                        child: Container(
-                          padding: const EdgeInsets.all(0),
-                          color: Colors.black,
-                          child: VideoPlayer(controller),
+                    Stack stack = Stack(
+                      children: [
+                        Center(
+                          child: AspectRatio(
+                            aspectRatio: controller.value.aspectRatio,
+                            child: Container(
+                              padding: const EdgeInsets.all(0),
+                              color: Colors.black,
+                              child: SnVideoPlayer(
+                                controller,
+                                fullscreenPlat: fullscreenPlat,
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    if (plat != null) plat,
-                  ],
-                );
+                        // if (fullscreenPlat != null) fullscreenPlat,
+                      ],
+                    );
 
-                return RepaintBoundary(
-                  // key: _previewContainer,
-                  child: stack,
-                );
-              })),
+                    return RepaintBoundary(
+                      key: _previewContainer,
+                      child: stack,
+                    );
+                  })),
             ),
           ),
         );

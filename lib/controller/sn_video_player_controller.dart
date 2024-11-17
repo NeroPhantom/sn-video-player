@@ -1,12 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:sn_video_player/abstracts/sn_plat_abstract.dart';
 import 'package:sn_video_player/abstracts/sn_player_controler_abstract.dart';
 import 'package:sn_video_player/fullscreen/sn_fullscreen_route.dart';
+import 'package:sn_video_player/sn_video_player.dart';
 // import 'package:sn_video_player/sn_video_player_web.dart';
 import 'package:video_player/video_player.dart';
 
-part 'controller/sn_v_p_ctrl_func.part.dart';
-part 'fullscreen/sn_fullscreen.part.dart';
+part 'sn_v_p_ctrl_func.part.dart';
+part '../fullscreen/sn_fullscreen.part.dart';
 
 class SNVideoPlayerController extends VideoPlayerController
     implements SNPlayerControllerAbstract {
@@ -58,10 +60,10 @@ class SNVideoPlayerController extends VideoPlayerController
   bool _isFullscreen = false;
 
   // main plat
-  Widget? plat;
+  SNPlat? plat;
 
   // fullscreen plat
-  Widget? fullscreenPlat;
+  SNPlat? fullscreenPlat;
 
   // 获取全屏状态
   bool get isFullscreen => _isFullscreen;

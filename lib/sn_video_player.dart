@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:sn_video_player/sn_video_player_controller.dart';
+import 'package:sn_video_player/abstracts/sn_plat_abstract.dart';
+import 'package:sn_video_player/controller/sn_video_player_controller.dart';
 import 'package:video_player/video_player.dart';
 // import 'package:sn_video_player/sn_video_player_web.dart';
 
@@ -13,19 +14,16 @@ class SnVideoPlayer extends StatefulWidget {
 
   final SNVideoPlayerController controller;
 
-  // 初始化设置全屏状态
-  final bool isFullscreen;
-
   // main plat
-  final Widget? plat;
+  final SNPlat? plat;
 
   // fullscreen plat
-  final Widget? fullscreenPlat;
+  final SNPlat? fullscreenPlat;
 
   const SnVideoPlayer(
     this.controller, {
     super.key,
-    this.isFullscreen = false,
+    // this.isFullscreen = false,
     this.plat,
     this.fullscreenPlat,
   });
@@ -40,7 +38,6 @@ class _SnVideoPlayer extends State<SnVideoPlayer> {
     super.initState();
 
     widget.controller
-      ..isFullscreen = widget.isFullscreen
       ..plat = widget.plat
       ..fullscreenPlat = widget.fullscreenPlat;
   }
@@ -51,7 +48,11 @@ class _SnVideoPlayer extends State<SnVideoPlayer> {
     return Stack(
       children: [
         VideoPlayer(widget.controller),
-        if (widget.plat != null) widget.plat!,
+        widget.controller.isFullscreen
+            ? ((widget.fullscreenPlat != null)
+                ? widget.fullscreenPlat!
+                : Container())
+            : ((widget.plat != null) ? widget.plat! : Container()),
       ],
     );
   }

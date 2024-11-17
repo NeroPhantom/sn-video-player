@@ -1,3 +1,3 @@
-part of '../sn_video_player_controller.dart';
+part of 'sn_video_player_controller.dart';
 
 test() {}
