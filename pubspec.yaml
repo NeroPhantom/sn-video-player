@@ -1,6 +1,6 @@
 name: sn_video_player
-description: "A new Flutter plugin project."
-version: 0.0.1
+description: "全屏视频播放器"
+version: 1.0.1+1
 homepage:
 repository: https://github.com/NeroPhantom/sn-video-player.git
 
@@ -40,7 +40,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.example.sn_video_player
+        package: com.flower.sn_video_player
         pluginClass: SnVideoPlayerPlugin
       ios:
         pluginClass: SnVideoPlayerPlugin

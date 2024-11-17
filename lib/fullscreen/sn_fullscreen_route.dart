@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-typedef Widget AnimationPageBuilder(BuildContext context,
+typedef AnimationPageBuilder = Widget Function(BuildContext context,
     Animation<double> animation, Animation<double> secondaryAnimation);
 
 class SNDialogRoute<T> extends PageRoute<T> {
@@ -15,7 +15,7 @@ class SNDialogRoute<T> extends PageRoute<T> {
   final AnimationPageBuilder builder;
 
   SNDialogRoute({
-    this.barrierColor = const Color(0x44FFFFFF),
+    this.barrierColor = Colors.grey,
     this.barrierLabel = "full",
     this.maintainState = true,
     this.transitionDuration = const Duration(milliseconds: 300),
