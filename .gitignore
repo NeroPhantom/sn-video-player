@@ -30,11 +30,3 @@ build/
 
 .vscode/
 
-/ios/*
-!/ios/Runner
-!/ios/Runner.xcodeproj
-
-/android/
-!/android/build.gradle
-pubspec.lock
-
