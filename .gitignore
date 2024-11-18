@@ -38,9 +38,3 @@ build/
 !/android/build.gradle
 pubspec.lock
 
-/example/android/
-!/example/ios/Runner
-!/example/ios/Runner.xcodeproj
-!/example/android/build.gradle
-!/example/lib
-!/example/pubspec.yaml

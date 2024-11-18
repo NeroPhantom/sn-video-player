@@ -5,7 +5,7 @@ enum FullScreenType {
   rotateBox,
 }
 
-showFullScreenVideoPlayer(
+_showFullScreenVideoPlayer(
   BuildContext context, {
   required SNVideoPlayerController controller,
   SNPlat? fullscreenPlat,

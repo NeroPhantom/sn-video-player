@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 typedef AnimationPageBuilder = Widget Function(BuildContext context,
     Animation<double> animation, Animation<double> secondaryAnimation);
 
-class SNDialogRoute<T> extends PageRoute<T> {
+class _SNDialogRoute<T> extends PageRoute<T> {
   @override
   final Color barrierColor;
   @override
@@ -14,7 +14,7 @@ class SNDialogRoute<T> extends PageRoute<T> {
   final Duration transitionDuration;
   final AnimationPageBuilder builder;
 
-  SNDialogRoute({
+  _SNDialogRoute({
     this.barrierColor = Colors.grey,
     this.barrierLabel = "full",
     this.maintainState = true,
@@ -30,7 +30,7 @@ class SNDialogRoute<T> extends PageRoute<T> {
   }
 }
 
-class SNFullScreenRoute<T> extends SNDialogRoute<T> {
+class SNFullScreenRoute<T> extends _SNDialogRoute<T> {
   SNFullScreenRoute({required WidgetBuilder builder})
       : super(builder: (ctx, a, s) => fullScreenBuilder(ctx, builder, a, s));
 
@@ -40,7 +40,6 @@ class SNFullScreenRoute<T> extends SNDialogRoute<T> {
     Animation<double> animation,
     Animation<double> secondaryAnimation,
   ) {
-    // return builder(context);
     return AnimatedBuilder(
       animation: animation,
       builder: (context, child) =>

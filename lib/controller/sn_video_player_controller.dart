@@ -92,7 +92,7 @@ class SNVideoPlayerController extends VideoPlayerController
     if (isFullscreen) {
       // 设置为全屏
       try {
-        showFullScreenVideoPlayer(
+        _showFullScreenVideoPlayer(
           parentContext!,
           controller: this,
           fullscreenPlat: fullscreenPlat,
