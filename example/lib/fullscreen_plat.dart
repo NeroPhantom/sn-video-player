@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sn_video_player/abstracts/sn_plat_abstract.dart';
 
 class FullscreenPlat extends SNPlat {
-  FullscreenPlat({
+  const FullscreenPlat({
     super.key,
     required super.isFullscreen,
   });

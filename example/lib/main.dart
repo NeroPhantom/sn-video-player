@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sn_video_player/controller/sn_video_player_controller.dart';
 import 'package:sn_video_player/sn_video_player.dart';
 import 'package:sn_video_player_example/fullscreen_plat.dart';
 import 'package:sn_video_player_example/plat.dart';
@@ -68,8 +67,8 @@ class _MyAppState extends State<MyApp> {
                 ),
                 child: SnVideoPlayer(
                   snVideoPlayerController,
-                  plat: Plat(isFullscreen: false),
-                  fullscreenPlat: FullscreenPlat(isFullscreen: true),
+                  plat: const Plat(isFullscreen: false),
+                  fullscreenPlat: const FullscreenPlat(isFullscreen: true),
                 ),
               ),
             ),

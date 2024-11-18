@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sn_video_player/sn_video_player.dart';
-import 'package:sn_video_player/controller/sn_video_player_controller.dart';
 import 'package:video_player/video_player.dart';
 
 abstract class SNPlat extends StatefulWidget {

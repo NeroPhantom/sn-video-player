@@ -3,7 +3,7 @@ import 'package:sn_video_player/abstracts/sn_plat_abstract.dart';
 import 'package:video_player/video_player.dart';
 
 class Plat extends SNPlat {
-  Plat({
+  const Plat({
     super.key,
     required super.isFullscreen,
   });

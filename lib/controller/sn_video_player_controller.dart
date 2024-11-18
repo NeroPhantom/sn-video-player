@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:sn_video_player/abstracts/sn_plat_abstract.dart';
 import 'package:sn_video_player/abstracts/sn_player_controler_abstract.dart';
 import 'package:sn_video_player/fullscreen/sn_fullscreen_route.dart';
 import 'package:sn_video_player/sn_video_player.dart';

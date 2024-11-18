@@ -117,7 +117,7 @@ class _SnVideoPlayer extends State<SnVideoPlayer> {
 }
 
 class FullScreenRectTween extends RectTween {
-  FullScreenRectTween({Rect? begin, Rect? end}) : super(begin: begin, end: end);
+  FullScreenRectTween({super.begin, super.end});
 
   @override
   Rect lerp(double t) {

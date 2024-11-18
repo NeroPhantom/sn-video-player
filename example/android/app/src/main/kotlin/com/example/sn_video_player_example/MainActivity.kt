@@ -1,4 +1,4 @@
-package com.flower.sn_video_player
+package com.example.sn_video_player_example
 
 import io.flutter.embedding.android.FlutterActivity
 
