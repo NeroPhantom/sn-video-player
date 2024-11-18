@@ -59,16 +59,17 @@ class _MyAppState extends State<MyApp> {
           children: [
             AspectRatio(
               aspectRatio: snVideoPlayerController.value.aspectRatio,
-              child: snVideoPlayerController.value.isInitialized
-                  ? Container(
-                      color: Colors.black,
-                      child: SnVideoPlayer(
-                        snVideoPlayerController,
-                        plat: Plat(isFullscreen: false),
-                        fullscreenPlat: FullscreenPlat(isFullscreen: true),
-                      ),
-                    )
-                  : const Text('等待初始化'),
+              child: Container(
+                color: Colors.black,
+                constraints: const BoxConstraints(
+                  maxHeight: 400,
+                ),
+                child: SnVideoPlayer(
+                  snVideoPlayerController,
+                  plat: Plat(isFullscreen: false),
+                  fullscreenPlat: FullscreenPlat(isFullscreen: true),
+                ),
+              ),
             ),
           ],
         ),

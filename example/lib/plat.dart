@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sn_video_player/abstracts/sn_plat_abstract.dart';
+import 'package:video_player/video_player.dart';
 
 class Plat extends SNPlat {
   Plat({
@@ -16,6 +17,7 @@ class _PlatState extends SNPlatState<Plat> {
   void initState() {
     super.initState();
 
+    // 第二种方式
     controller.addListener(_playerListener);
   }
 
@@ -34,22 +36,36 @@ class _PlatState extends SNPlatState<Plat> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        ElevatedButton(
+    Size size = MediaQuery.of(context).size;
+    debugPrint(size.toString());
+
+    return Stack(children: [
+      Center(
+        child: ElevatedButton(
             onPressed: () {
               var value = controller.value;
               bool isPlaying = value.isPlaying;
               isPlaying ? controller.pause() : controller.play();
             },
             child: Text(controller.value.isPlaying ? '暂停' : '播放')),
-        ElevatedButton(
+      ),
+      Positioned(
+        bottom: 0,
+        right: 0,
+        child: ElevatedButton(
             onPressed: () {
               controller.isFullscreen = true;
             },
             child: const Text('全屏')),
-      ],
-    );
+      ),
+    ]);
+  }
+
+  @override
+  videoUpdate(VideoPlayerValue value) {
+    // 第一种方式
+    bool isPlayering = value.isPlaying;
+    debugPrint(isPlayering.toString());
   }
 
   @override

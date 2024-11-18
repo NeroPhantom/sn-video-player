@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sn_video_player/sn_video_player.dart';
 import 'package:sn_video_player/controller/sn_video_player_controller.dart';
+import 'package:video_player/video_player.dart';
 
 abstract class SNPlat extends StatefulWidget {
   final bool isFullscreen;
@@ -27,5 +28,19 @@ abstract class SNPlatState<T extends SNPlat> extends State<T> {
 
     controller = parent.controller;
     controller.isFullscreen = widget.isFullscreen;
+    controller.addListener(_listenter);
+  }
+
+  _listenter() {
+    videoUpdate(controller.value);
+  }
+
+  videoUpdate(VideoPlayerValue value) {}
+
+  @override
+  void dispose() {
+    super.dispose();
+
+    controller.removeListener(_listenter);
   }
 }

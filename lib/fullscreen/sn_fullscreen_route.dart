@@ -40,6 +40,7 @@ class SNFullScreenRoute<T> extends SNDialogRoute<T> {
     Animation<double> animation,
     Animation<double> secondaryAnimation,
   ) {
+    // return builder(context);
     return AnimatedBuilder(
       animation: animation,
       builder: (context, child) =>

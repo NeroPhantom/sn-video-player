@@ -49,8 +49,8 @@ _showFullScreenWithRotateBox(
           quarterTurns = 0;
         }
 
-        double width = MediaQuery.of(context).size.width;
-        double height = MediaQuery.of(context).size.height;
+        double width = mediaQueryData.size.width;
+        double height = mediaQueryData.size.height;
 
         return RotatedBox(
           quarterTurns: quarterTurns,

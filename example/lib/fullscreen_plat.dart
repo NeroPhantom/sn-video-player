@@ -34,20 +34,26 @@ class _FullscreenPlatState extends SNPlatState<FullscreenPlat> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Stack(
       children: [
-        ElevatedButton(
-            onPressed: () {
-              var value = controller.value;
-              bool isPlaying = value.isPlaying;
-              isPlaying ? controller.pause() : controller.play();
-            },
-            child: Text(controller.value.isPlaying ? '暂停' : '播放')),
-        ElevatedButton(
-            onPressed: () {
-              controller.isFullscreen = false;
-            },
-            child: const Text('退出全屏')),
+        Center(
+          child: ElevatedButton(
+              onPressed: () {
+                var value = controller.value;
+                bool isPlaying = value.isPlaying;
+                isPlaying ? controller.pause() : controller.play();
+              },
+              child: Text(controller.value.isPlaying ? '暂停' : '播放')),
+        ),
+        Positioned(
+          bottom: 0,
+          right: 0,
+          child: ElevatedButton(
+              onPressed: () {
+                controller.isFullscreen = false;
+              },
+              child: const Text('退出全屏')),
+        ),
       ],
     );
   }
