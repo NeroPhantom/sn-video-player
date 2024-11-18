@@ -6,6 +6,11 @@ import 'package:sn_video_player/abstracts/sn_plat_abstract.dart';
 import 'package:sn_video_player/controller/sn_video_player_controller.dart';
 import 'package:video_player/video_player.dart';
 
+// export plat lib file
+export 'abstracts/sn_plat_abstract.dart';
+// export controller lib file
+export 'controller/sn_video_player_controller.dart';
+
 class SnVideoPlayer extends StatefulWidget {
   static void registerWith(dynamic registrar) {
     if (kIsWeb) {
