@@ -4,6 +4,8 @@ import 'package:sn_video_player/sn_video_player.dart';
 import 'package:sn_video_player_example/fullscreen_plat.dart';
 import 'package:sn_video_player_example/plat.dart';
 
+export './plat.dart';
+
 void main() {
   runApp(const MyApp());
 }
