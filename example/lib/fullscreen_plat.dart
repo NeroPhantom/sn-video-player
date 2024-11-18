@@ -43,7 +43,7 @@ class _FullscreenPlatState extends SNPlatState<FullscreenPlat> {
                 bool isPlaying = value.isPlaying;
                 isPlaying ? controller.pause() : controller.play();
               },
-              child: Text(controller.value.isPlaying ? '暂停' : '播放')),
+              child: Text(controller.value.isPlaying ? 'Pause' : 'Play')),
         ),
         Positioned(
           bottom: 0,
@@ -52,7 +52,7 @@ class _FullscreenPlatState extends SNPlatState<FullscreenPlat> {
               onPressed: () {
                 controller.isFullscreen = false;
               },
-              child: const Text('退出全屏')),
+              child: const Text('Exit')),
         ),
       ],
     );

@@ -47,7 +47,7 @@ class _PlatState extends SNPlatState<Plat> {
               bool isPlaying = value.isPlaying;
               isPlaying ? controller.pause() : controller.play();
             },
-            child: Text(controller.value.isPlaying ? '暂停' : '播放')),
+            child: Text(controller.value.isPlaying ? 'Pause' : 'Play')),
       ),
       Positioned(
         bottom: 0,
@@ -56,7 +56,7 @@ class _PlatState extends SNPlatState<Plat> {
             onPressed: () {
               controller.isFullscreen = true;
             },
-            child: const Text('全屏')),
+            child: const Text('Fullscreen')),
       ),
     ]);
   }
